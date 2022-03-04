@@ -28,4 +28,8 @@ class Usuario:
     def mostrar_balance_usuario (self,nombreCuenta):
         print(f"Balance: ${self.cuenta[nombreCuenta].balance}")
         return self
+
+    def generar_interes (self,nombreCuenta):
+        self.cuenta[nombreCuenta].balance+=(self.cuenta[nombreCuenta].balance*self.cuenta[nombreCuenta].tasa)
+        return self
     
