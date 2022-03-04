@@ -30,11 +30,7 @@ class CuentaBancaria:
         for cuenta in cls.cuentas:
             cuenta.mostrar_info_cuenta()
         
-cuenta1=CuentaBancaria(tasa=10)
-cuenta2=CuentaBancaria(tasa=5)
 
-cuenta1.deposito(100).deposito(200).deposito(300).retiro(100).generar_interes().mostrar_info_cuenta()
-cuenta2.deposito(200).deposito(200).retiro(500).retiro(50).retiro(50).retiro(50).generar_interes().mostrar_info_cuenta()
 
-CuentaBancaria.todas()
+
 

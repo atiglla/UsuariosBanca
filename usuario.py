@@ -4,21 +4,24 @@ class Usuario:
     def __init__(self,name,email):
         self.name=name
         self.emai=email
-        self.cuenta=CuentaBancaria(tasa=2,balance=1000)
+        self.cuenta={
+            "cuenta1":CuentaBancaria(tasa=10, balance=200),
+            "cuenta2":CuentaBancaria(tasa=5)
+        }
     
-    def hacer_deposito (self,amount):
-        self.cuenta.balance+=amount
+    def hacer_deposito (self,amount,nombreCuenta):
+        self.cuenta[nombreCuenta].balance+=amount
         return self
 
-    def hacer_retiro (self,amount):
-        if self.cuenta.balance-amount>=0:
-            self.cuenta.balance-=amount
+    def hacer_retiro (self,amount,nombreCuenta):
+        if self.cuenta[nombreCuenta].balance-amount>=0:
+            self.cuenta[nombreCuenta].balance-=amount
         else:
             print ("Fondos insuficientes: cobrando una tarifa de $5")
-            self.cuenta.balance-=5
+            self.cuenta[nombreCuenta].balance-=5
         return self
 
-    def mostrar_balance_usuario (self):
-        print(f"Balance: ${self.cuenta.balance}")
+    def mostrar_balance_usuario (self,nombreCuenta):
+        print(f"Balance: ${self.cuenta[nombreCuenta].balance}")
         return self
     
