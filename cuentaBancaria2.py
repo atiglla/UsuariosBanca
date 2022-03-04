@@ -24,6 +24,8 @@ class CuentaBancaria:
     def generar_interes (self):
         self.balance+=(self.balance*self.tasa)
         return self
+
+
     
     @classmethod
     def todas (cls):

@@ -5,7 +5,7 @@ class Usuario:
         self.name=name
         self.emai=email
         self.cuenta={
-            "cuenta1":CuentaBancaria(tasa=10, balance=200),
+            "cuenta1":CuentaBancaria(tasa=10, balance=0),
             "cuenta2":CuentaBancaria(tasa=5)
         }
     
@@ -20,6 +20,10 @@ class Usuario:
             print ("Fondos insuficientes: cobrando una tarifa de $5")
             self.cuenta[nombreCuenta].balance-=5
         return self
+
+    def transferir_dinero (self,amount,cuentaorigen,cuentadestino):
+        self.cuenta[cuentaorigen].balance-=amount
+        self.cuenta[cuentadestino].balance+=amount
 
     def mostrar_balance_usuario (self,nombreCuenta):
         print(f"Balance: ${self.cuenta[nombreCuenta].balance}")
